@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+
+kind: Deployment  
+
+metadata: 
+  name: deploymentinternal-deployment
+  labels:
+    app: deploymentinternal
+    type: backend
+
+spec:
+  template:
+    metadata:
+      name: deploymentinternal-pod
+      labels:
+        app: deploymentinternal
+        tier: backend
+    spec:
+      containers:
+      - name: deploymentinternal-container
+        image: amrkhan28/int:1.0
+
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: deploymentinternal

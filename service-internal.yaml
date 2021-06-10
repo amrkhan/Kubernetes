@@ -1,0 +1,18 @@
+apiVersion: v1
+
+kind: Service
+
+metadata:
+  name: devops-internal
+  labels:
+    app: devops-internal
+    tier: backend
+spec:
+  ports:
+    - port: 8082
+      targetPort: 8082
+  selector:
+    app: deploymentinternal
+  
+
+
